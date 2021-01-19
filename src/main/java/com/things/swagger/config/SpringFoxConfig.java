@@ -1,5 +1,6 @@
 package com.things.swagger.config;
 
+import com.things.swagger.controller.HouseController;
 import com.things.swagger.controller.PersonController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,9 +16,10 @@ import java.time.LocalDate;
 
 @Configuration
 @EnableSwagger2
-@ComponentScan(basePackageClasses = {
-        PersonController.class
-})
+//@ComponentScan(basePackageClasses = {
+//        PersonController.class,
+//        HouseController.class
+//})
 public class SpringFoxConfig {
     @Bean
     public Docket docketApi() {

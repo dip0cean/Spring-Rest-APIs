@@ -8,7 +8,7 @@ import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/person")
-@Api(value = "/person", description = "Person 객체에 대한 CRUD")
+@Api(value = "/person", tags = "회원",description = "Person 객체에 대한 CRUD")
 @RequiredArgsConstructor
 @RepositoryRestController
 public class PersonController {
@@ -28,6 +28,9 @@ public class PersonController {
     }
 
     @ApiOperation(value = "회원 등록", nickname = "회원 등록")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "저장 성공")
+    })
     @RequestMapping(method = RequestMethod.POST, value = "/save")
     public Person save(@RequestBody Person person) {
         return personService.save(person);
